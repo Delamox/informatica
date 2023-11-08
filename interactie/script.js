@@ -1,17 +1,17 @@
 function init()
     {
-        var ball = document.getElementById('ball');
-        var text = document.getElementById('text');
-        ball.style.backgroundColor = "#FF88FF";
-        ball.style.width = "400px";
-        ball.style.height = "400px";
-        ball.style.position = "relative";
-        text.style.position = "absolute";
-        text.style.color = "#FF88FF"
-        text.style.backgroundColor = "#FF88FF"
-        text.style.top = "50%";
-        text.style.left = "50%";
-        text.style.transform = "translate(-50%, -50%)";
+        var square = document.getElementById('square');
+        var object = document.getElementById('object');
+        square.style.backgroundColor = "#FF88FF";
+        square.style.width = "400px";
+        square.style.height = "400px";
+        square.style.position = "relative";
+        object.style.position = "absolute";
+        object.style.color = "#FF88FF"
+        object.style.backgroundColor = "#FF88FF"
+        object.style.top = "50%";
+        object.style.left = "50%";
+        object.style.transform = "translate(-50%, -50%)";
     } init();
 
 function msEnter()
@@ -20,23 +20,23 @@ function msEnter()
         var min = 15;
         var randXPosInt = Math.random() * (max - min) + min;
         var randYPosInt = Math.random() * (max - min) + min;
-        ball.style.backgroundColor = "#FF8800";
-        text.style.backgroundColor = "#FF8800";
-        text.style.top = randYPosInt + "%";
-        text.style.left = randXPosInt + "%";
+        square.style.backgroundColor = "#FF8800";
+        object.style.backgroundColor = "#FF8800";
+        object.style.top = randYPosInt + "%";
+        object.style.left = randXPosInt + "%";
     }
 
 function msLeave()
     {
-        ball.style.backgroundColor = "#FF88FF";
-        text.innerHTML = "missed!";
-        text.style.backgroundColor = "#FF88FF";
+        square.style.backgroundColor = "#FF88FF";
+        object.innerHTML = "missed!";
+        object.style.backgroundColor = "#FF88FF";
     }
 
 function msClick()
     {
-        text.innerHTML = "got me!";
+        object.innerHTML = "got me!";
     }
-ball.onmousedown = function() {msEnter()};
-ball.onmouseup = function() {msLeave()};
-text.onclick = function() {msClick()};
+square.onmousedown = function() {msEnter()};
+square.onmouseup = function() {msLeave()};
+object.onclick = function() {msClick()};
