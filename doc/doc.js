@@ -1,22 +1,27 @@
-//ecma
-(()=>
+var get=document.getElementById
+var disp=[0, 0];
+var r=1;
+var op='+' 
+function addToDisplay(e)
 {
-
-})(window,document)
-
-//js
-document.addEventListener("DOMContentLoaded", function()
+    disp[r]+=e
+    get('dp').innerHTML=toString(disp[r])
+}
+function SwitchInt(e)
 {
-
-})
-
-//js2
-(function()
+    if (r==1){r=2}
+    else if (r==2){r=1}
+    get('dp').innerHTML=toString(disp[r])
+}
+function calculate(disp)
 {
-
-})(window,document)
-
-//object
-var x = 1
-const y = x
-let z = x
+if (op=='+')
+{res=disp[1]+disp[2]}
+else if (op=='-')
+{res=disp[1]-disp[2]}
+else if (op=='*')
+{res=disp[1]*disp[2]}
+else if (op=='/')
+{res=disp[1]/disp[2]}
+get('dp').innerHTML=toString(res)
+}
