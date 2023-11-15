@@ -1,2 +1,2 @@
 # web
-school
+\<insert interesting bio text here>
