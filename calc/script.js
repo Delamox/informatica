@@ -1,8 +1,9 @@
 var disp=[,];
 var i=0
 var op=''
+var ans=false
 disp[0]=''
-disp[1]='' 
+disp[1]=''
 //i dicteert het nummer na [1] of voor [0] de operator in disp[]
 //op is de operator
 //res geeft het resultaat van de berekening
@@ -12,15 +13,14 @@ disp[1]=''
 
 function addToDisplay(e)
 {
-    if(ans=!true){disp[i]+=e}else{disp[i]=e}
+    if(ans==true){disp[i]=e}else{disp[i]+=e}
     ans=false
     document.getElementById('dp').value=disp[i]
 }
 function switchInt(e)
 {
     op=e
-    if (i==0){i=1}
-    else if (i==1){i=0}
+    if (i==0){i=1}else{i=0}
     document.getElementById('dp').value=disp[i]
 }
 function backspace()
@@ -32,6 +32,7 @@ function dispclear()
 {
     i=0
     op=''
+    res='ERROR'
     disp=['','']
     document.getElementById('dp').value=''
 }
@@ -50,6 +51,6 @@ function calculate()
     i=0
     disp[0]=parseInt(res)
     disp[1]='';
+    } catch {document.getElementById('dp').value='ERROR'}
     ans=true
-    } catch {document.getElementById('dp').value='ERROR'; ans=true}
 }
