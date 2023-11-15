@@ -1,8 +1,8 @@
 var disp=[];
 var r=0
 var op=''
-disp[1]=''
-disp[0]='' 
+disp[0]=''
+disp[1]='' 
 function addToDisplay(e)
 {
     disp[r]+=e
@@ -18,13 +18,7 @@ function switchInt(e)
 function backSpace()
 {
     disp[r]=disp[r].slice(0,-1)
-}
-function clearDisplay()
-{
-    disp.pop()
-    op='+'
-    r=0
-    document.getElementById('dp').value=''
+    document.getElementById('dp').value=(disp[r])
 }
 function calculate()
 {
