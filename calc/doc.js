@@ -19,9 +19,9 @@ function backSpace()
 {
     disp[r]=disp[r].slice(0,-1)
 }
-function clear()
+function clearDisplay()
 {
-    disp=[]
+    disp.pop()
     op='+'
     r=0
     document.getElementById('dp').value=''
