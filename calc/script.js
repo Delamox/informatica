@@ -11,26 +11,26 @@ function addToDisplay(e)
 {
     if(ans=!true){disp[i]+=e}else{disp[i]=e}
     ans=false
-    document.getElementById('dp')=disp[i]
+    document.getElementById('dp').value=disp[i]
 }
 function switchInt(e)
 {
     op=e
     if (i==0){i=1}
     else if (i==1){i=0}
-    document.getElementById('dp')=disp[i]
+    document.getElementById('dp').value=disp[i]
 }
 function backspace()
 {
     disp[i]=disp[i].slice(0,-1)
-    document.getElementById('dp')=(disp[i])
+    document.getElementById('dp').value=(disp[i])
 }
 function dispclear()
 {
     i=0
     op=''
     disp=['','']
-    document.getElementById('dp')=''
+    document.getElementById('dp').value=''
 }
 function calculate()
 {
@@ -43,14 +43,10 @@ function calculate()
     {res=disp[0]*disp[1]}
     else if (op=='/')
     {res=disp[0]/disp[1]}
-    document.getElementById('dp')=res
+    document.getElementById('dp').value=res
     i=0
     disp[0]=parseInt(res)
     disp[1]='';
     ans=true
-    } catch 
-    {
-        document.getElementById('dp')='ERROR'
-        ans=true
-    }
+    } catch {document.getElementById('dp').value='ERROR'; ans=true}
 }
