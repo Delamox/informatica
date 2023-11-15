@@ -5,7 +5,10 @@ disp[0]=''
 disp[1]='' 
 //i dicteert het nummer na [1] of voor [0] de operator in disp[]
 //op is de operator
-//alles zelf geschreven behalve frontend (met w3 en stackoverflow voor wat hulp bij specifieke syntax)
+//res geeft het resultaat van de berekening
+//ans geeft aan of je kan doorrekenen bijv. 6+6 = 12-4 = 6 in plaats van 6+6 = 12, 12-4 = 6
+//de backslash knop wordt gebruikt als backspace knop
+//alles zelf geschreven (met w3 en stackoverflow voor wat hulp bij specifieke syntax) behalve html en css (ik had er geen zin in)
 
 function addToDisplay(e)
 {
