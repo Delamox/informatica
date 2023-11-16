@@ -1,14 +1,9 @@
-function init()
-{
-    var disp=[,];
-    var i=0
-    var op=''
-    var ans=false
-    disp[0]=''
-    disp[1]=''
-    dp=document.getElementById('dp')
-}
-
+var disp=[,];
+var i=0
+var op=''
+var ans=false
+disp[0]=''
+disp[1]=''
 //i dicteert het nummer na [1] of voor [0] de operator in disp[]
 //op is de operator
 //res geeft het resultaat van de berekening
@@ -20,18 +15,18 @@ function addToDisplay(e)
 {
     if(ans==true){disp[i]=e}else{disp[i]+=e}
     ans=false
-    dp.value=disp[i]
+    document.getElementById('dp').value=disp[i]
 }
 function switchInt(e)
 {
     op=e
     if (i==0){i=1}else{i=0}
-    dp.value=disp[i]
+    document.getElementById('dp').value=disp[i]
 }
 function backspace()
 {
     disp[i]=disp[i].slice(0,-1)
-    dp.value=(disp[i])
+    document.getElementById('dp').value=(disp[i])
 }
 function dispclear()
 {
@@ -39,7 +34,7 @@ function dispclear()
     op=''
     res='ERROR'
     disp=['','']
-    dp.value=''
+    document.getElementById('dp').value=''
 }
 function calculate()
 {
@@ -52,10 +47,10 @@ function calculate()
     {res=disp[0]*disp[1]}
     else if (op=='/')
     {res=disp[0]/disp[1]}
-    dp.value=res
+    document.getElementById('dp').value=res
     i=0
     disp[0]=parseInt(res)
     disp[1]='';
-    } catch {dp.value='ERROR'}
+    } catch {document.getElementById('dp').value='ERROR'}
     ans=true
 }
