@@ -23,10 +23,16 @@ function switchInt(e)
     if (i==0){i=1}else{i=0}
     document.getElementById('dp').value=disp[i]
 }
+function evaluateInt(e)
+{
+    if (e=='sqrt')
+    {disp[i]=Math.sqrt(disp[i])}
+    document.getElementById('dp').value=disp[i]
+}
 function backspace()
 {
     disp[i]=disp[i].slice(0,-1)
-    document.getElementById('dp').value=(disp[i])
+    document.getElementById('dp').value=disp[i]
 }
 function dispclear()
 {
@@ -40,17 +46,19 @@ function calculate()
 {
     try{
     if (op=='+')
-    {res=parseInt(disp[0])+parseInt(disp[1])}
+    {res=parseFloat(disp[0])+parseFloat(disp[1])}
     else if (op=='-')
     {res=disp[0]-disp[1]}
     else if (op=='*')
     {res=disp[0]*disp[1]}
     else if (op=='/')
     {res=disp[0]/disp[1]}
+    else if (op=='exp')
+    {res=disp[0]**disp[1]}
     document.getElementById('dp').value=res
     i=0
     disp[0]=parseInt(res)
     disp[1]='';
-    } catch {document.getElementById('dp').value='ERROR'}
+    }catch{document.getElementById('dp').value='ERROR'}
     ans=true
 }
