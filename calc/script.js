@@ -21,7 +21,7 @@ function switchInt(e)
 {
     op=e
     if (i==0){i=1}else{i=0}
-    document.getElementById('dp').value=disp[i]
+    document.getElementById('dp').value=e
 }
 function evaluateInt(e)
 {
