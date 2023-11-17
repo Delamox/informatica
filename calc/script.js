@@ -51,7 +51,7 @@ function calculate()
     {res=disp[0]*disp[1]}
     else if (op=='/')
     {res=disp[0]/disp[1]}
-    else if (op=='exp')
+    else if (op=='^')
     {res=disp[0]**disp[1]}
     document.getElementById('dp').value=res
     i=0
