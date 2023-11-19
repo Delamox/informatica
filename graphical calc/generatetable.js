@@ -1,35 +1,40 @@
-var table = document.createElement("table");
-var rx = 200;
-var ry = 200;
-init()
+var table = document.createElement('table');
+var Xaxis = 200;
+var Yaxis = 200;
+var fx = '80*Math.cos((2*Math.PI*x)/100)+100+.1*x'
+function resize() {
+    Xaxis = prompt('X axis length?')
+    Yaxis = prompt('Y axis length?')
+    init()
+}
+function redraw() {
+  fx = prompt('formula in JS notation')
+  draw()
+}
 function init() {
-  for (let i = 0; i < ry; i++) {
+  try { table.replaceChildren(); } catch(err) { alert(err) }
+  for (let i = 0; i < Yaxis; i++) {
     let row = table.insertRow();
-    row.setAttribute("id", rx - i)
-    for (let j = 0; j < rx; j++) {
+    for (let j = 0; j < Xaxis; j++) {
       let cell = row.insertCell();
-      cell.setAttribute("id", j + 1)
+      cell.setAttribute("id", 'cell')
     }
   }
   document.getElementById('body').appendChild(table);
 }
-var a = (-0.1);
-var b = (7);
-var c = (0);
-
-draw()
 function draw() {
   prevY = 0
-  for (let x = 0; x < rx; x += 1) {
-    //let dy = Math.floor((parseFloat(a) * x ** 2) + x * b + c)
-    let dy = Math.round(80 * Math.cos((2 * Math.PI * x) / 100) + 100 + .0 * x)
-    try { table.rows[ry - dy + 1].cells[x - 1].style.background = 'black' } catch (err) { ; }
-    for (m = 0; m < (ry - dy + 1) - prevY - 1; m++) {
-      try { table.rows[m + prevY + 1].cells[x - 1].style.background = 'black' } catch (err) { ; }
+  for (let x = 0; x < Xaxis + 1; x += 1) {
+    try { dy = Math.round(eval(fx)) } catch { alert('formula is not correct JS'); break }
+    try { table.rows[Yaxis - dy + 0].cells[x - 1].style.background = 'black' } catch { ; }
+    for (let m = 0; m < (Yaxis - dy + 1) - prevY - 1; m++) {
+      try { table.rows[m + prevY + 0].cells[x - 1].style.background = 'black' } catch { ; }
     }
-    for (m = 0; m < -1 * ((ry - dy + 1) - prevY) - 1; m++) {
-      try { table.rows[prevY - m - 1].cells[x - 2].style.background = 'black' } catch (err) { ; }
+    for (let m = 0; m < -1 * ((Yaxis - dy + 1) - prevY) - 1; m++) {
+      try { table.rows[prevY - m - 2].cells[x - 2].style.background = 'black' } catch { ; }
     }
-    prevY = ry - dy + 1
+    prevY = Yaxis - dy + 1
   }
 }
+init();
+draw();

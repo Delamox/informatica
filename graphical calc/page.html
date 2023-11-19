@@ -20,8 +20,27 @@
   </style>
 </head>
 
-<body id="body">
+<body>
+  <div id="body"></div>
   <script src="script.js"></script>
+  <button onclick="redraw()">enter formula</button>
+  <button onclick="resize()">set field size</button>
+  <button onclick="clear()">clear</button>
+  <br>
+  <p1>
+    <br> example trigonometric: <code
+      style="background-color: lightgray;">>&nbsp;80*Math.cos((2*Math.PI*x)/100)+100+.1*x&nbsp;</code>
+    <br> y = 80cos( ( 2πx ) / 100 ) + 100 + 0.1x
+    <br>
+    <br> example quadratic: <code style="background-color: lightgray;">>&nbsp;0.1*x**2+x*-10+260&nbsp;</code>
+    <br> y = 0.1x² + -10x + 260
+    <br>
+    <br> example basic: <code style="background-color: lightgray;">>&nbsp;2*x&nbsp;</code>
+    <br> y = 2x
+    <br>
+    <br> example line through middle: <code style="background-color: lightgray;">>&nbsp;Xaxis/2&nbsp;</code>
+    <br> y = Xaxis/2
+  </p1>
 </body>
 
 </html>
