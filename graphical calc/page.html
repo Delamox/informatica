@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 80%;
+    }
+
     table {
       border: 1px solid lightgray;
       border-collapse: collapse;
@@ -14,7 +19,7 @@
     td,
     tr {
       border-collapse: collapse;
-      padding: 2px;
+      padding: 1px;
       /* border: 1px solid lightgray; */
     }
   </style>
@@ -25,12 +30,17 @@
   <script src="script.js"></script>
   <button onclick="redraw()">enter formula</button>
   <button onclick="resize()">set field size</button>
-  <button onclick="clear()">clear</button>
+  <button onclick="pixelsize()">set pixel size</button>
+  <button onclick="clearfield()">clear</button>
   <br>
   <p1>
+    <br> Extremely innefficient graphing calculator using a table. careful with paraboleas and big field sizes, i was
+    too lazy to implement a break when the value of y exceeds the size of the table, making it loop millions of times
+    more than it should.
+    <br>
     <br> example trigonometric: <code
-      style="background-color: lightgray;">>&nbsp;80*Math.cos((2*Math.PI*x)/100)+100+.1*x&nbsp;</code>
-    <br> y = 80cos( ( 2πx ) / 100 ) + 100 + 0.1x
+      style="background-color: lightgray;">>&nbsp;80*Math.cos((2*Math.PI*x)/100)+75+.5*x&nbsp;</code>
+    <br> y = 80cos( ( 2πx ) / 100 ) + 75 + 0.5x
     <br>
     <br> example quadratic: <code style="background-color: lightgray;">>&nbsp;0.1*x**2+x*-10+260&nbsp;</code>
     <br> y = 0.1x² + -10x + 260
@@ -42,5 +52,9 @@
     <br> y = Xaxis/2
   </p1>
 </body>
+<footer>
+  <br><br><br><br>
+  <p1 style="font-size: 75%;">built by daniëltenbosch</p1>
+</footer>
 
 </html>
