@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,12 @@
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: 80%;
     }
+
     table {
       border: 1px solid lightgray;
       border-collapse: collapse;
     }
+
     td,
     tr {
       border-collapse: collapse;
@@ -21,6 +24,7 @@
     }
   </style>
 </head>
+
 <body>
   <div id="body"></div>
   <script src="script.js"></script>
@@ -30,20 +34,21 @@
   <button onclick="clearfield()">clear</button>
   <br>
   <p1>
-    <br> Extremely innefficient graphing calculator using a table. careful with parabolas and big field sizes, i was
-    too lazy to implement a break when the value of y exceeds the size of the table, making it loop millions of times
-    more than it should.
+    <br> Extremely innefficient graphing calculator using a table.
     <br>
-    <br> example trigonometric: <code style="background-color: lightgray;font-size: 120%;">>&nbsp;&nbsp;80*Math.cos((2*Math.PI*x)/100)+75+.5*x&nbsp;&nbsp;</code>
+    <br> example trigonometric: <code
+      style="background-color: lightgray;font-size: 120%;">>&nbsp;&nbsp;80*Math.cos((2*Math.PI*x)/100)+75+.5*x&nbsp;&nbsp;</code>
     <br> y = 80cos( ( 2πx ) / 100 ) + 75 + 0.5x
     <br>
-    <br> example quadratic: <code style="background-color: lightgray;font-size: 120%;">>&nbsp;&nbsp;0.1*x**2+x*-10+260&nbsp;&nbsp;</code>
+    <br> example quadratic: <code
+      style="background-color: lightgray;font-size: 120%;">>&nbsp;&nbsp;0.1*x**2+x*-10+260&nbsp;&nbsp;</code>
     <br> y = 0.1x² + -10x + 260
     <br>
     <br> example basic: <code style="background-color: lightgray;font-size: 120%;">>&nbsp;&nbsp;2*x&nbsp;&nbsp;</code>
     <br> y = 2x
     <br>
-    <br> example line through middle: <code style="background-color: lightgray;font-size: 120%;">>&nbsp;&nbsp;Xaxis/2&nbsp;&nbsp;</code>
+    <br> example line through middle: <code
+      style="background-color: lightgray;font-size: 120%;">>&nbsp;&nbsp;Xaxis/2&nbsp;&nbsp;</code>
     <br> y = Xaxis/2
   </p1>
 </body>
@@ -51,4 +56,5 @@
   <br><br><br><br>
   <p1 style="font-size: 75%;">99% Built by D.L. ten Bosch</p1>
 </footer>
+
 </html>
