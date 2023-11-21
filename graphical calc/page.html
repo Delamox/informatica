@@ -10,29 +10,42 @@
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: 80%;
     }
-
     table {
       border: 1px solid lightgray;
       border-collapse: collapse;
     }
-
     td,
     tr {
       border-collapse: collapse;
       padding: 1px;
       /* border: 1px solid lightgray; */
     }
+
+    #bp {
+      background-color: lightgray;
+      width: fit-content;
+      padding: 20px;
+      border-radius: 25px;
+      border: 2px solid black;
+    }
   </style>
 </head>
-
 <body>
   <div id="body"></div>
   <script src="script.js"></script>
-  <button onclick="redraw()">enter formula</button>
-  <button onclick="resize()">set field size</button>
-  <button onclick="pixelsize()">set pixel size</button>
-  <button onclick="clearfield()">clear</button>
   <br>
+  <div id="bp">
+        <b style="color: red;">f(x)=</b><input style="width:400px" id="0" type="textbox"></input>
+    <br><b style="color: green;">f(x)=</b><input style="width:400px" id="1" type="textbox"></input>
+    <br><b style="color: blue;">f(x)=</b><input style="width:400px" id="2" type="textbox"></input>
+    <br><b style="color: yellow;">f(x)=</b><input style="width:400px" id="3" type="textbox"></input>
+    <br><b style="color: magenta;">f(x)=</b><input style="width:400px" id="4" type="textbox"></input>
+    <br><b style="color: cyan;">f(x)=</b><input style="width:400px" id="5" type="textbox"></input>
+    <br><br><button style="width:max-content" onclick="redraw()">draw</button>
+    <button onclick="clearfield()">clear</button>
+    <button onclick="resize()">set field size</button>
+    <button onclick="pixelsize()">set pixel size</button>
+  </div>
   <p1>
     <br> Extremely innefficient graphing calculator using a table.
     <br>
