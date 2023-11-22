@@ -1,7 +1,7 @@
 var table=document.createElement('table')
 var Xaxis=300
 var Yaxis=300
-var fx='80*Math.cos((2*Math.PI*x)/100)+75+.5*x'
+var fx='80*Math.cos((2*Math.PI*x)/100)+.5*x'
 var clra=['#ff0000','#00ff00','#0000ff','#ffff00','#ff00ff','#00ffff']
 var ci=0
 //var fxa=['','','','','','']
@@ -41,28 +41,30 @@ function init(){
   }document.getElementById('body').appendChild(table);
 }
 function draw(){
+  try{
   prevY=0
   clr=clra[ci%6]
-  for (let x=0;x<Xaxis+1;x+=1) {
-    try {dy=Math.round(eval(fx))}catch{alert('formula is not correct JS');break}
-    try {table.rows[Yaxis-dy+0].cells[x-1].style.background=clr}catch{}
-    if (!((dy>Yaxis||dy<0)&&(prevY>Yaxis||prevY<0))){
+  offset=Math.ceil(Yaxis/2)
+  for (let x=-offset;x<Xaxis+1-offset;x+=1) {
+    try {dy=Math.round(eval(fx))+offset}catch{alert('formula is not correct JS');break}
+    if (!(isNaN(dy)||(dy>Yaxis||dy<0)&&(prevY>Yaxis||prevY<0))){
+      try {table.rows[Yaxis-dy+0].cells[x-1+offset].style.background='black'}catch(err){console.log(err, x, dy)}
       for (m=0;m<(Yaxis-dy+1)-prevY-1;m++){
         if (m<Math.floor(((Yaxis-dy+1)-prevY-1)/2)){
-          try{table.rows[m+prevY+0].cells[x-2].style.background=clr}catch{}
+          try{table.rows[m+prevY+0].cells[x-2+offset].style.background=clr}catch{}
         }else{
-          try{table.rows[m+prevY+0].cells[x-1].style.background=clr}catch{}
+          try{table.rows[m+prevY+0].cells[x-1+offset].style.background=clr}catch{}
         }
       }
       for (m=0;m<-1*((Yaxis-dy+1)-prevY)-1;m++){
         if (m<Math.ceil((-1*((Yaxis-dy+1)-prevY)-1)/2)){
-          try{table.rows[prevY-m-2].cells[x-2].style.background=clr}catch{}
+          try{table.rows[prevY-m-2].cells[x-2+offset].style.background=clr}catch{}
         }else{
-          try{table.rows[prevY-m-2].cells[x-1].style.background=clr}catch{}
+          try{table.rows[prevY-m-2].cells[x-1+offset].style.background=clr}catch{}
         }
       }prevY=Yaxis-dy+1
     }
-  }ci++
+  }ci++}catch(err){console.log(err)}
 }
 init();
 draw();
