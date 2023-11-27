@@ -1,12 +1,15 @@
 var table=document.createElement('table')
 var Xaxis=300
 var Yaxis=300
-var fx='80*Math.cos((2*Math.PI*x)/100)+.5*x'
+//var fx='80*Math.cos((2*Math.PI*x)/100)+.5*x'
+var fx='x**2'
 var clra=['#ff0000','#00ff00','#0000ff','#ffff00','#ff00ff','#00ffff']
 var ci=0
 //var fxa=['','','','','','']
 //&&fxa[i]!=fx
 
+//x³ werkt met hard limit op m size, ik probeer een script the scrijven die de interpolatie stopt wanneer de y van m out of m bounds is
+//zit een fout in tweede for loop voor interpolatie: oude versie word later vandaag teruggezet via github (i love version control)
 function resize(){
   Xaxis=prompt('X axis length?')
   Yaxis=prompt('Y axis length?')
@@ -42,22 +45,36 @@ function init(){
 }
 function draw(){
   try{
+  //zet waarde van vorige pixel op 0 (word dus niet geïnterpoleerd)
   prevY=0
+  //selecteert de kleur van de lijn
   clr=clra[ci%6]
+  //berekend offset
   offset=Math.ceil(Yaxis/2)
-  for (let x=-offset;x<Xaxis+1-offset;x+=1) {
+    //repeat het aantal x waarden in grafiek
+    for (let x=-offset;x<Xaxis+1-offset;x+=1) {
+    //bereken y waarde
     try {dy=Math.round(eval(fx))+offset}catch{alert('formula is not correct JS');break}
-    if (!(isNaN(dy)||(dy>Yaxis||dy<0)&&(prevY>Yaxis||prevY<0))){
+    //als beide punten buiten het grafiek vallen of het antwoord NaN is dan skip je de loop van deze x waarde
+    if (!(isNaN(dy)||(dy>Yaxis||dy<0)||(prevY>Yaxis||prevY<0))){
+      //plaats berekende pixel y in grafiek
       try {table.rows[Yaxis-dy+0].cells[x-1+offset].style.background='black'}catch(err){console.log(err, x, dy)}
+      //repeat voor delta y tussen de huidige en vorige berekende pixel
       for (m=0;m<(Yaxis-dy+1)-prevY-1;m++){
+        //deel delta y in tweeën laat een helft de pixels aan de kant van de huidige en de andere helft aan de vorige pixel plaatsen
         if (m<Math.floor(((Yaxis-dy+1)-prevY-1)/2)){
+          //plaats pixel rechts (vorige pixel kant)
           try{table.rows[m+prevY+0].cells[x-2+offset].style.background=clr}catch{}
         }else{
+          //plaats pixel links (huidige pixel kant)
           try{table.rows[m+prevY+0].cells[x-1+offset].style.background=clr}catch{}
         }
       }
+      //deze doet het niet vvvv
       for (m=0;m<-1*((Yaxis-dy+1)-prevY)-1;m++){
+        //hele berekening negatief
         if (m<Math.ceil((-1*((Yaxis-dy+1)-prevY)-1)/2)){
+          //plaats pixel rechts (vorige pixel kant) maar in plaats van de huidige m + de vorige Y waarde van de pixel doet ie - de vorige Y waarde van de pixelb
           try{table.rows[prevY-m-2].cells[x-2+offset].style.background=clr}catch{}
         }else{
           try{table.rows[prevY-m-2].cells[x-1+offset].style.background=clr}catch{}
